@@ -100,7 +100,6 @@ class RefTreeTableBase extends Component {
 		const { className,showModal, searchable, backdrop, title, showLine, 
 			multiple, menuTitle, tableTitle, valueField,
 			lang,buttons} = this.props;
-			console.log('总props的checkedArray',this.checkedArray)
 		let {showLoading , treeData,onTreeChange,onTreeSearch,} = this.props;
 		let {
 			columnsData,
@@ -116,6 +115,7 @@ class RefTreeTableBase extends Component {
 			showLine,
 			multiple,
 			lang,
+			valueField,
 			showLoading,
 			treeData,
 			onTreeChange,
@@ -127,6 +127,7 @@ class RefTreeTableBase extends Component {
 			valueField,
 			showLoading,
 			multiple,
+			showModal,//就是为了update，不对外
 			checkedArray:this.checkedArray,
 			condition,
 			columnsData,
@@ -156,8 +157,8 @@ class RefTreeTableBase extends Component {
 									</div>
 								}
 								<RefTreeBaseUI
-									{...treeProps}
 									onTreeChange={onTreeChange}
+									{...treeProps}
 									// onTreeLoading = {_this.onTreeLoading}
 								/>
 							</div>

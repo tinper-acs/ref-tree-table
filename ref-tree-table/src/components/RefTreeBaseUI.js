@@ -194,7 +194,8 @@ class RefTreeBaseUI extends Component {
       showLoading,
       lang,
       defaultExpandAll,
-      nodeDisplay = "{refname}"
+      nodeDisplay = "{refname}",
+      nodeKeysFunc
     } = this.props;
     const { checkedKeys,  checkStrictly} = this.state;
     return (
