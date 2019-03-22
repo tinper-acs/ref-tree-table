@@ -1,23 +1,16 @@
 
 import React, { Component } from 'react';
 import Loading from 'rc-loading';
-import shallowequal from 'shallowequal';
 import RefCoreError from 'ref-core/lib/refs/refcoreerror';
-import RefCoreButton from 'ref-core/lib/refs/refcorebutton';
 import RefCoreTab from 'ref-core/lib/refs/refcoretab';
 import RefCoreSearch from 'ref-core/lib/refs/refcoresearch';
 import 'ref-core/lib/refs/refcoreerror.css';
-import 'ref-core/lib/refs/refcorebutton.css';
 import 'ref-core/lib/refs/refcoretab.css';
 import 'ref-core/lib/refs/refcoresearch.css';
 import {paginationLocale} from 'ref-core/lib/utils/locale.js'
-
-import {Icon,Pagination,Table,Checkbox} from 'tinper-bee';
+import {Pagination,Table,Checkbox} from 'tinper-bee';
 import multiSelect from 'tinper-bee/lib/multiSelect.js';
-
-import { refValParse } from '../utils';
 import './RefMultipleTableBase.less'
-let tableSearchTimeCount;
 // const MultiSelectTable = multiSelect(Table, Checkbox);
 class RefMultipleTableBase extends Component {
 	columnsData = []//表头数据
@@ -48,7 +41,9 @@ class RefMultipleTableBase extends Component {
 	}
 	initComponent = (props) => {
         //内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
-        let { checkedArray,columnsData,tableData,page,valueField} = props;
+		let { checkedArray,columnsData,tableData,page,valueField} = props;
+		console.log('tableUIde checkedArray',checkedArray)
+		
 		this.checkedArray = Object.assign([],  checkedArray || []);
 		//内部缓存已选择值，缓存成 Map 便于检索
 		this.checkedMap = {};

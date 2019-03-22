@@ -65,10 +65,10 @@ class RefTreeTableBase extends Component {
 			//  condition: '',
 			// showLoading: true
 		};
-		this.checkedArray = [];
+		this.checkedArray = props.checkedArray || [];
 	}
 	
-	//搜索点击发请求
+	//table的所有点击
 	onSelectChange = (record) => {
 		this.checkedArray = record;
 	}
@@ -97,11 +97,10 @@ class RefTreeTableBase extends Component {
 	}
 	render() {
 		const _this = this;
-		const { className,showModal, searchable, backdrop, title, param, showLine, 
-			multiple, hasPage, menuTitle, tableTitle, valueField,checkedArray=[],
+		const { className,showModal, searchable, backdrop, title, showLine, 
+			multiple, menuTitle, tableTitle, valueField,
 			lang,buttons} = this.props;
-		//下面是通用ui新增的属性和方法
-		//showLoading控制tree和table
+			console.log('总props的checkedArray',this.checkedArray)
 		let {showLoading , treeData,onTreeChange,onTreeSearch,} = this.props;
 		let {
 			columnsData,
@@ -128,7 +127,7 @@ class RefTreeTableBase extends Component {
 			valueField,
 			showLoading,
 			multiple,
-			checkedArray,
+			checkedArray:this.checkedArray,
 			condition,
 			columnsData,
 			tableData,

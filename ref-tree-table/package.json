@@ -13,7 +13,8 @@
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/",
     "precommit": "npm run lint",
     "es": "rm -rf es && babel src -d es --no-comments",
-    "deploy": "npm run clear:gh-pages && webpack --config config/webpack.config.ghpages.js"
+    "deploy": "npm run clear:gh-pages && webpack --config config/webpack.config.ghpages.js",
+    "dev_ref_core": "cross-env use_ref_core_dev=true npm run dev"
   },
   "bugs": {
     "url": "https://github.com/tinper-acs/ref-tree-t/issues"
@@ -87,6 +88,7 @@
     "prop-types": "^15.6.0"
   },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "rc-loading": "^1.0.2",
     "ref-core": "^0.3.3-beta"
   }
