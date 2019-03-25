@@ -11,20 +11,15 @@
 
 ```sh
 
-$ npm install pap-refer --save
+$ npm install ref-tree-table@2.0.0-beta.0 --save
  --save
 
 引入
 
-import RefTreeTableWithInput,{RefTreeTable, createRefTreeTable,createRefTreeTableModal} from 'pap-refer';
+import RefTreeTableWithInput,{RefTreeTable, createRefTreeTable,createRefTreeTableModal} from 'ref-tree-table';
 
-样式
+import 'ref-tree-table/dist/index.css"
 
-import 'pap-refer/dist/index.css"
-
-或者
-import RefTreeTableWithInput,{RefTreeTable, createRefTreeTable,createRefTreeTableModal} from 'pap-refer/lib/ref-tree-table.js';
-import 'pap-refer/lib/ref-tree-table.css"
 
 ```
 
@@ -171,6 +166,9 @@ export default Form.createForm()(Demo1);
 
 ```
 
+
+
+
 ## API
 
 ### RefTreeTableBaseUI Api
@@ -253,8 +251,6 @@ RefWithInput提供的参数可以保证参照组件的checkedArray更新以及�
 ## 更新日志
 
 
-
-
 ## 树形参照分类
 
 ### RefTreeTableBaseUI (默认)
@@ -275,7 +271,6 @@ RefWithInput提供的参数可以保证参照组件的checkedArray更新以及�
 ### createRefTreeTableModal
 
     非 ReactJS 调用方式，与  RefTreeTableWithInput 相同带文本框的参照弹出窗。
-
 
 
 ## 开发调试
