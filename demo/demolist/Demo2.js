@@ -6,7 +6,7 @@
  */
 
 import React, { Component } from 'react';
-import RefTreeTableBase from '../../src/index';
+import RefTreeTableBaseUI from '../../src/index';
 import {Form,Button} from 'tinper-bee';
 
 class Demo2 extends Component {
@@ -75,7 +75,7 @@ class Demo2 extends Component {
             <div>
                 <div className="demo-label">
                     <span >组织人员：</span>
-                    <RefTreeTableBase
+                    <RefTreeTableBaseUI
                         title='组织部门人员'
                         textOption={{
                             menuTitle: '组织',
