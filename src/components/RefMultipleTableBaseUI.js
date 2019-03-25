@@ -116,6 +116,7 @@ class RefMultipleTableBaseUI extends Component {
 	}
 
 	miniSearchFunc = (value) => {
+		this.filterInfo = value;
 		this.props.onTableSearch(value)
 	}
 	/**

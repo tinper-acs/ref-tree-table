@@ -11,7 +11,7 @@ import 'ref-core/css/refcore.css';
 function RefTreeTable(props){
     return (
         <RefCoreGlobal {...props}>
-            <RefTreeTableBase />
+            <RefTreeTableBaseUI />
         </RefCoreGlobal>
     )
 }
@@ -46,7 +46,7 @@ function RefTreeTableWithInput(props){
     )
 }
 
-export default RefTreeTableBase;
+export default RefTreeTableBaseUI;
 
 export {
     RefTreeTable,
