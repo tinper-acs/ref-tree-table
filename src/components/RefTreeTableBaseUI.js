@@ -91,9 +91,9 @@ class RefTreeTableBaseUI extends Component {
 	render() {
 		const _this = this;
 		const { className,showModal, searchable, backdrop, title, showLine, 
-			multiple, menuTitle, tableTitle, valueField,
+			multiple, menuTitle, tableTitle, valueField,value,
 			lang,buttons,checkStrictly,defaultExpandAll,nodeDisplay} = this.props;
-		let {showLoading , treeData,onTreeChange,onTreeSearch,} = this.props;
+		let {showLoading , treeData,onTreeChange,onTreeSearch,matchData} = this.props;
 		let {
 			columnsData,
 			tableData,
@@ -131,6 +131,8 @@ class RefTreeTableBaseUI extends Component {
 			page,
 			loadTableData,
 			onTableSearch,
+			matchData,
+			value
 		})
 		return (
 			<Modal

@@ -11,6 +11,7 @@ import {paginationLocale} from 'ref-core/lib/utils/locale.js'
 import {Pagination,Table,Checkbox} from 'tinper-bee';
 import multiSelect from 'tinper-bee/lib/multiSelect.js';
 import './RefMultipleTableBase.less'
+import { refValParse } from '../utils';
 // const MultiSelectTable = multiSelect(Table, Checkbox);
 const noop = () => {
 };
@@ -51,22 +52,33 @@ class RefMultipleTableBaseUI extends Component {
 	}
 	initComponent = (props) => {
         //内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
-		let { checkedArray,columnsData,tableData,page,valueField} = props;
-		console.log('tableUIde checkedArray',checkedArray,tableData)
+		let { checkedArray,columnsData,tableData,page,valueField,matchData=[],value} = props;
 		this.checkedArray = Object.assign([],  checkedArray || []);
 		//内部缓存已选择值，缓存成 Map 便于检索
 		this.checkedMap = {};
 		this.checkedArray.forEach(item=>{
 			this.checkedMap[item[valueField]] = item;
-        });
-        this.columnsData = columnsData
+		});
+		this.columnsData = columnsData
         this.tableData = tableData;
         this.pageCount = page.pageCount || 0;
         this.currPageIndex = page.currPageIndex + 1 || 0;
-        this.totalElements = page.totalElements || 0;
-        this.setState({
-            mustRender: Math.random()
-        });
+		this.totalElements = page.totalElements || 0;
+		let valueMap = refValParse(value);
+		if (Boolean(this.checkedArray.length == 0 && valueMap[valueField] && matchData.length>0)) {
+			this.checkedMap = {};
+			this.checkedArray = matchData.map(item=>{
+				item.key = item[valueField];
+				item._checked = true;
+				this.checkedMap[item.key] = item;
+				return item;
+			});
+			this.setState({
+				selectedDataLength: this.checkedArray.length,
+				mustRender: Math.random()
+			})
+		}
+        
 	}
 	onChange = (checkedArray) => {
 		let { onChange } = this.props;

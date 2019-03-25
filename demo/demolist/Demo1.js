@@ -93,14 +93,14 @@ class Demo1 extends Component {
                         valueField='refpk'
                         lang='zh_TW'
                         {...getFieldProps('code', {
-                            initialValue: '{"refname":"","refpk":""}',
+                            initialValue: '{"refname":"人员1","refpk":"cc791b77-bd18-49ab-b3ec-ee83cd40012a"}',
                             rules: [{
                                 message: '提示：请选择',
                                 pattern: /[^{"refname":"","refpk":""}|{"refpk":"","refname":""}]/
                             }]
                         })}
                         showLoding={false}
-                        treeData={treeData} 
+                        treeData={treeData}
                         showLoading={false} 
                         onTreeChange={this.onTreeChange} 
                         onTreeSearch={this.onTreeSearch}
