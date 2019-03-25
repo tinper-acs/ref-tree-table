@@ -1,4 +1,4 @@
-import RefTreeTableBase from './components/RefTreeTableBase';
+import RefTreeTableBaseUI from './components/RefTreeTableBaseUI';
 import RefWithInput from 'ref-core/lib/refs/refcorewithinput.js';
 import 'ref-core/lib/refs/refcorewithinput.css';
 import createModal from 'ref-core/lib/utils/createApi.js';

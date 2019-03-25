@@ -13,19 +13,15 @@ const propTypes = {
 	title: PropTypes.string,
 	searchable: PropTypes.bool,
 	// emptyBut: PropTypes.bool,
-	tabData: PropTypes.array,
 	param: PropTypes.object,
 	checkedArray: PropTypes.array,
-	hasPage: PropTypes.bool,
 	onCancel: PropTypes.func,
 	onSave: PropTypes.func,
 	lang: PropTypes.string,
 	menuTitle: PropTypes.string,
 	tableTitle: PropTypes.string,
-
 	valueField: PropTypes.string,
-
-	classNam: PropTypes.string,
+	className: PropTypes.string,
 	backdrop: PropTypes.bool,
 	showLine: PropTypes.bool,
 	multiple: PropTypes.bool,
@@ -35,12 +31,9 @@ const defaultProps = {
 	title: '弹窗标题',
 	searchable: true,
 	// emptyBut: false,
-	tabData: [//tab标签
-	],
 	param: {//url请求参数
 	},
 	checkedArray: [],
-	hasPage: false,
 	onCancel: function (p) {
 	},
 	onSave: function (sels) {
@@ -58,7 +51,7 @@ const defaultProps = {
 };
 
 
-class RefTreeTableBase extends Component {
+class RefTreeTableBaseUI extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -99,7 +92,7 @@ class RefTreeTableBase extends Component {
 		const _this = this;
 		const { className,showModal, searchable, backdrop, title, showLine, 
 			multiple, menuTitle, tableTitle, valueField,
-			lang,buttons} = this.props;
+			lang,buttons,checkStrictly,defaultExpandAll} = this.props;
 		let {showLoading , treeData,onTreeChange,onTreeSearch,} = this.props;
 		let {
 			columnsData,
@@ -115,8 +108,11 @@ class RefTreeTableBase extends Component {
 			showLine,
 			multiple,
 			lang,
+			checkStrictly,
 			valueField,
 			showLoading,
+			nodeDisplay,
+			defaultExpandAll,
 			treeData,
 			onTreeChange,
 			onTreeSearch,
@@ -135,7 +131,6 @@ class RefTreeTableBase extends Component {
 			page,
 			loadTableData,
 			onTableSearch,
-
 		})
 		return (
 			<Modal
@@ -191,6 +186,6 @@ class RefTreeTableBase extends Component {
 	}
 }
 
-RefTreeTableBase.propTypes = propTypes;
-RefTreeTableBase.defaultProps = defaultProps;
-export default RefTreeTableBase;
+RefTreeTableBaseUI.propTypes = propTypes;
+RefTreeTableBaseUI.defaultProps = defaultProps;
+export default RefTreeTableBaseUI;

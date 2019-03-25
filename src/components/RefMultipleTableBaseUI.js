@@ -12,7 +12,17 @@ import {Pagination,Table,Checkbox} from 'tinper-bee';
 import multiSelect from 'tinper-bee/lib/multiSelect.js';
 import './RefMultipleTableBase.less'
 // const MultiSelectTable = multiSelect(Table, Checkbox);
-class RefMultipleTableBase extends Component {
+const noop = () => {
+};
+const propTypes = {
+	loadTableData: PropTypes.func,//分页下拉或者跳转的回调
+	onTableSearch: PropTypes.func
+};
+const defaultProps = {
+	loadTableData: noop,
+	onTableSearch:noop,
+}
+class RefMultipleTableBaseUI extends Component {
 	columnsData = []//表头数据
 	tableData = []//表格数据
 	pageCount = 1//总页数
@@ -322,4 +332,6 @@ class RefMultipleTableBase extends Component {
 		);
 	}
 }
-export default RefMultipleTableBase;
+RefMultipleTableBaseUI.propTypes = propTypes;
+RefMultipleTableBaseUI.defaultProps = defaultProps;
+export default RefMultipleTableBaseUI;
