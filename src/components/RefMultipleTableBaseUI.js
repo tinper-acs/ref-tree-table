@@ -53,7 +53,6 @@ class RefMultipleTableBaseUI extends Component {
         //内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
 		let { checkedArray,columnsData,tableData,page,valueField} = props;
 		console.log('tableUIde checkedArray',checkedArray,tableData)
-		
 		this.checkedArray = Object.assign([],  checkedArray || []);
 		//内部缓存已选择值，缓存成 Map 便于检索
 		this.checkedMap = {};
