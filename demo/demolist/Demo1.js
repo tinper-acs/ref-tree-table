@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import {RefTreeTableWithInput} from '../../src/index';
-import {Form} from 'tinper-bee';
+import {Form,Button} from 'tinper-bee';
 
 class Demo1 extends Component {
     constructor() {
@@ -118,6 +118,13 @@ class Demo1 extends Component {
                             getFieldError('code')
                         }
                     </span>
+                    <Button  
+                        colors="primary"
+                        onClick={() => {
+                        this.props.form.validateFields((err, values) => {
+                            console.log(err, values)
+                        });
+                    }}>submit</Button>
                 </div>
             </div>
         )
