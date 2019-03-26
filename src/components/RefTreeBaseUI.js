@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { is } from 'immutable';
+import { is } from 'immutable';
 import Loading from 'rc-loading';
 import RefCoreError from 'ref-core/lib/refs/refcoreerror';
 import RefCoreTree from 'ref-core/lib/refs/refcoretree';
@@ -65,19 +65,12 @@ class RefTreeBaseUI extends Component {
   // shouldComponentUpdate(nextProps, nextState){
 	// 	return !is(nextState, this.state) || nextProps.showModal !== this.props.showModal;
 	// }
-	// componentWillReceiveProps(nextProps) {
-	// 	let _this = this;
-	// 	//严格模式下每次打开必须重置数据
-	// 			//开启严格模式 
-	// 	this.setState({
-	// 		showLoading: true
-	// 	},() => {
-	// 		this.initComponent();
-	// 	});
-	// 	// this.setState({
-	// 	//   checkedArray:this.props.option.checkedArray
-	// 	// })
-	// }
+	componentWillReceiveProps(nextProps,nextState) {
+    if(!is(nextState, this.state)){
+      this.treeData = nextProps.treeData;
+      this.setState({mustRender: Math.random()})
+    }
+	}
 
   onSearchClick = (value) => {
     this.props.onTreeSearch(value);

@@ -16,7 +16,7 @@ $ npm install ref-tree-table@2.0.0-beta.0 --save
 
 引入
 
-import RefTreeTableWithInput,{RefTreeTable, createRefTreeTable,createRefTreeTableModal} from 'ref-tree-table';
+import RefTreeTableBaseUI,{RefTreeTableWithInput,RefTreeTable, createRefTreeTable,createRefTreeTableModal} from 'ref-tree-table';
 
 import 'ref-tree-table/dist/index.css"
 
@@ -172,6 +172,9 @@ export default Form.createForm()(Demo1);
 ## API
 
 ### RefTreeTableBaseUI Api
+
+> RefTreeTableBaseUI Api可以分成三部分，一部分是整体使用，一部分左树，一部分是右表，但是统一传入<RefTreeTableBaseUI/>
+
 参数 | 类型 |默认值| 说明 | 必选
 ---|---|--- | --- | ---
 title |``string``|空 |打开上传的模态框显示的标题文字 | 否
@@ -206,9 +209,11 @@ onTreeSearch`function(searchVal)` |()=>{} |左树上的搜索| 否
 ---|---|--- | --- | ---
 multiple |`bool`| false |右表是否单选， true 单选，false 多选。左树总是单选 | 否
 checkedArray| `array`|[]|已选择数据。注意，当使用RefTreeTableWithInput 或者 搭配refcorewithinput使用时，checkedArray这个参数不起效且初始值默认[] | 否
+value| ``string``|空|默认值，RefWithInput和参照组件都会使用。配合matchData来初始化选中节点。例如 `'{"refname":"初级-T1","refpk":"level1"}'`。|否
+matchData | `Array` | [] | 初始化选中的节点(<span style="color: red; font-size: 15px;">macthData优先，其次是value</span>)| 否
 condition| `Object` | -- | 右表查询条件，带上左树信息。根据condition值不同来刷新页面| 否
 columnsData | `Array` | [] | 右表列数据。具体参照tinper-bee的table组件 | 否
-tableDataArray | [] | 右表表体数据。具体参照tinper-bee的table组件 | 否
+tableData|Array | [] | 右表表体数据。具体参照tinper-bee的table组件 | 否
 page | `Object` | {pageCount:0,currPageIndex:0,totalElements:0}| 分页数据信息。 | 否
 loadTableData | `function(param)`|()=>{}| 分页下拉或者跳转的回调，返回参数 | 否
 onTableSearch| `function(valye)`|()=>{}| 表格搜索的回调|否
@@ -245,20 +250,24 @@ onMatchInitValue| `function(value)` | onMatchInitValue = (checkedArray) => {this
 
 
 ## 注意事项
-RefWithInput提供的参数可以保证参照组件的checkedArray更新以及参照showModal关闭打开，因此在使用RefWithInput就需要额外手动维护这两个参数
+ 
+ > RefCoreWithInput提供的参数可以保证参照组件showModal关闭打开，因此在使用RefCoreWithInput就不需要额外手动维护showModal
+ 
+ > RefCoreWithInput使用value来展示input的值，参照组件使用matchData来初始化选中节点，若matchData为空，使用value来初始化参照中checkedArray（树组件可以，表不可以）
 
+> 注意：modalShow在refcorewithinput中有提供。因此若是refcorewithinput和refmultipletablebaseui配合使用，注意showModal onSave onCancel
 
 ## 更新日志
 
 
-## 树形参照分类
+## 树表参照分类
 
 ### RefTreeTableBaseUI (默认)
     树表的通用ui
     
 ### RefTreeTable
     
-    参照弹出窗，没有输入框，使用时可根据自己需要定义具体的文本框。实质是RefCoreGlobal和RefTreeTableBase的组合
+    参照弹出窗，没有输入框，使用时可根据自己需要定义具体的文本框。实质是RefCoreGlobal和RefTreeTableBaseUI的组合
 
 ### RefTreeTableWithInput
     
