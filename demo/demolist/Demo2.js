@@ -1,6 +1,6 @@
 /**
  *
- * @title ref-tree-table树表参照
+ * @title 树表参照示例2
  * @description 具有单选多选的树表形参照
  *
  */
