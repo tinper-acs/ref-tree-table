@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Loading from 'rc-loading';
+import PropTypes from 'prop-types';
 import RefCoreError from 'ref-core/lib/refs/refcoreerror';
 import RefCoreTab from 'ref-core/lib/refs/refcoretab';
 import RefCoreSearch from 'ref-core/lib/refs/refcoresearch';
