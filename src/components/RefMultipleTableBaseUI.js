@@ -77,9 +77,11 @@ class RefMultipleTableBaseUI extends Component {
 			this.setState({
 				selectedDataLength: this.checkedArray.length,
 				mustRender: Math.random()
+			},()=>{
+				//这里需要同步一下Reftreetablebaseui中的checkedArray
+				this.props.onChange(this.checkedArray)
 			})
 		}
-        
 	}
 	onChange = (checkedArray) => {
 		let { onChange } = this.props;
