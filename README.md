@@ -1,9 +1,9 @@
-# ref-tree-table树表参照
+# 树表参照 RefTreeTable
 
 
 ## 何时使用
 
-> 单选多选的树表参照
+单选多选的树表参照
 
 
 
