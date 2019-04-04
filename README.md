@@ -12,7 +12,6 @@
 ```sh
 
 $ npm install ref-tree-table@2.0.0  --save
- --save
 
 引入
 
