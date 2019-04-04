@@ -27,11 +27,12 @@ import 'ref-tree-table/dist/index.css"
 
 ## 分类
 
-### RefTreeTableBaseUI (默认)
+
+RefTreeTableBaseUI (默认)
     树表的通用ui
     
 
-### RefTreeTableWithInput
+RefTreeTableWithInput
     
     带文本框的参照弹出窗。
 
