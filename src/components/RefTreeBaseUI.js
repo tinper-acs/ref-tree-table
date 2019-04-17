@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { is } from 'immutable';
-import Loading from 'rc-loading';
-import RefCoreError from 'ref-core/lib/refs/refcoreerror';
-import RefCoreTree from 'ref-core/lib/refs/refcoretree';
-import RefCoreSearch from 'ref-core/lib/refs/refcoresearch';
-import 'ref-core/lib/refs/refcoreerror.css';
-import 'ref-core/lib/refs/refcoretree.css';
-import 'ref-core/lib/refs/refcoresearch.css';
+import Loading from 'bee-loading';
+import RefCoreError from 'ref-core/lib/refs/RefCoreError';
+import RefCoreTree from 'ref-core/lib/refs/RefCoreTree';
+import RefCoreSearch from 'ref-core/lib/refs/RefCoreSearch';
 import './RefTreeBase.less';
 const noop = () => {
 };
@@ -196,7 +193,7 @@ class RefTreeBaseUI extends Component {
       <div
         className={`${className} ref-core ref-tree-table-base `}
       >
-       	<Loading spinning={showLoading} type={'fence'} displayType={"block"} >
+       	<Loading show={showLoading} type={'fence'} displayType={"block"} ></Loading>
         <RefCoreSearch
             show={searchable}
             onSearch={this.onSearchClick}
@@ -224,7 +221,6 @@ class RefTreeBaseUI extends Component {
               /> :
               <RefCoreError show={!Boolean(this.treeData.length)} language={lang} />
           }
-        </Loading>
       </div>
     );
   }

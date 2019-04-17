@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Modal} from 'tinper-bee';
-import Loading from 'rc-loading';
-import RefCoreButton from 'ref-core/lib/refs/refcorebutton.js';
-import 'ref-core/lib/refs/refcorebutton.css';
-// import RefMultipleTableBase from './RefMultipleTableBase';
-// import RefTreeBase from './RefTreeBase';
+import Loading from 'bee-loading';
+import RefCoreButton from 'ref-core/lib/refs/RefCoreButton.js';
 import RefMultipleTableBaseUI from './RefMultipleTableBaseUI';
 import RefTreeBaseUI from './RefTreeBaseUI';
 
@@ -101,6 +98,7 @@ class RefTreeTableBaseUI extends Component {
 			loadTableData,
 			onTableSearch,
 			condition,
+			theme="ref-red"
 		} = this.props;
 		let treeProps = Object.assign({},{
 			className,
@@ -136,16 +134,16 @@ class RefTreeTableBaseUI extends Component {
 		})
 		return (
 			<Modal
-				show={showModal} className={`${className} ref-core ref-core-modal ref-tree-table`}
+				show={showModal} className={`${theme}  ${className} ref-core ref-core-modal ref-tree-table`}
 				backdrop={backdrop}
-				size={'lg'}
+				size={'xlg'}
 				onHide={this.handleBtnCancel}
 			>
 				<Modal.Header closeButton={true}>
 						<Modal.Title>{title}</Modal.Title>
 				</Modal.Header >
 				<Modal.Body>
-					<Loading spinning={showLoading} type={'fence'} displayType={"block"} >
+					<Loading show={showLoading} type={'fence'} displayType={"block"} ></Loading>
 						<div className="ref-tree-table-layout">
 							<div className="ref-tree-table-layout-col">
 								{
@@ -173,7 +171,6 @@ class RefTreeTableBaseUI extends Component {
 								/> 
 							</div>
 						</div>
-					</Loading>
 				</Modal.Body>
 				<Modal.Footer className={'ref-core-modal-footer '}>
 					<RefCoreButton 

@@ -85,9 +85,7 @@ class Demo1 extends Component {
                         displayField='{refname}'
                         valueField='refpk'
                         lang='zh_TW'
-                        showLoding={false}
                         treeData={treeData}
-                        showLoading={false} 
                         onTreeChange={this.onTreeChange} 
                         onTreeSearch={this.onTreeSearch}
                         condition={condition}
