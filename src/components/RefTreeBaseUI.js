@@ -5,7 +5,7 @@ import Loading from 'bee-loading';
 import RefCoreError from 'ref-core/lib/refs/RefCoreError';
 import RefCoreTree from 'ref-core/lib/refs/RefCoreTree';
 import RefCoreSearch from 'ref-core/lib/refs/RefCoreSearch';
-import './RefTreeBase.less';
+// import './RefTreeBase.less';
 const noop = () => {
 };
 const propTypes = {

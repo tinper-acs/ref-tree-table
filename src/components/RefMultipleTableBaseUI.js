@@ -10,7 +10,7 @@ import Pagination from 'bee-pagination';
 import Checkbox from 'bee-checkbox';
 import Table from 'bee-table';
 import multiSelect from "bee-table/build/lib/multiSelect.js";
-import './RefMultipleTableBase.less'
+// import './RefMultipleTableBase.less'
 import { refValParse } from '../utils';
 // const MultiSelectTable = multiSelect(Table, Checkbox);
 const noop = () => {

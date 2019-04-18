@@ -7,6 +7,7 @@
 
 import React, { Component } from 'react';
 import RefTreeTableBaseUI from '../../src/index';
+import  '../../src/index.less';
 import {Form,Button} from 'tinper-bee';
 
 class Demo2 extends Component {

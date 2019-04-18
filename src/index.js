@@ -4,7 +4,7 @@ import createModal from 'ref-core/lib/utils/createApi.js';
 import RefCoreGlobal from 'ref-core/lib/refs/RefCoreGlobal';
 import React from 'react';
 import 'ref-core/css/refcore.css';
-import './index.less';
+//import './index.less'; //webpack打包放开
 
 function RefTreeTable(props){
     return (

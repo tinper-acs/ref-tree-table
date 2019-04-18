@@ -7,6 +7,8 @@
 
 import React, { Component } from 'react';
 import {RefTreeTableWithInput} from '../../src/index';
+import  '../../src/index.less';
+
 import {Form,Button} from 'tinper-bee';
 
 class Demo1 extends Component {
