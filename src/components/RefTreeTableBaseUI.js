@@ -142,7 +142,7 @@ class RefTreeTableBaseUI extends Component {
 				backdrop={backdrop}
 				size={'xlg'}
 				onHide={this.handleBtnCancel}
-				
+				autoFocus={false}
 			>
 				<Modal.Header closeButton={true}>
 						<Modal.Title>{title}</Modal.Title>

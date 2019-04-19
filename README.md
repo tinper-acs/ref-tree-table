@@ -79,15 +79,15 @@ onTreeSearch`function(searchVal)` |()=>{} |左树上的搜索| 否
 参数 | 类型 |默认值| 说明 | 必选
 ---|---|--- | --- | ---
 multiple |`bool`| false |右表是否单选， true 单选，false 多选。左树总是单选 | 否
-checkedArray| `array`|[]|已选择数据。注意，当使用RefTreeTableWithInput 或者 搭配refcorewithinput使用时，checkedArray这个参数不起效且初始值默认[] | 否
+matchData| `array`|[]|表中展示的选中数据| 否
 value| ``string``|空|默认值，初始化input框值|否
 matchData | `Array` | [] | 选中的节点，macthData和value配合使用，当value中refpk不为空且matchData有值，选中节点从matchData中获取| 否
 condition| `Object` | -- | 右表查询条件，带上左树信息。根据condition值不同来刷新页面| 否
 columnsData | `Array` | [] | 右表列数据。具体参照tinper-bee的table组件 | 否
 tableData|Array | [] | 右表表体数据。具体参照tinper-bee的table组件 | 否
 page | `Object` | {pageCount:0,currPageIndex:0,totalElements:0}| 分页数据信息。 | 否
-loadTableData | `function(param)`|()=>{}| 分页下拉或者跳转的回调，返回参数 | 否
-onTableSearch| `function(valye)`|()=>{}| 表格搜索的回调|否
+loadTableData | `function(param)`|()=>{}| 分页下拉或者跳转的回调，返回参数。参数包含{refClientPageInfo.currPageIndex:分页当前页码,refClientPageInfo.pageSize:每页展示的数据量,content:搜索条件} | 否
+onTableSearch| `function(value)`|()=>{}| 表格搜索的回调，参数是搜索条件|否
 
 
 ### RefTreeTableWithInput
