@@ -1,6 +1,6 @@
 {
   "name": "ref-tree-table",
-  "version": "2.0.1-beta.1",
+  "version": "2.0.1-beta.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -29,6 +29,7 @@
   "files": [
     "package.json",
     "dist",
+    "lib",
     "README.md"
   ],
   "devDependencies": {
