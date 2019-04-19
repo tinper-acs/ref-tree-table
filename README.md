@@ -15,9 +15,13 @@ $ npm install ref-tree-table@2.0.0  --save
 
 引入
 
-import RefTreeTableBaseUI from 'ref-tree-table';
+import RefTreeTableBaseUI from 'ref-tree-table/lib/index.js';
+或者
+import { RefTreeTableWithInput } from 'ref-tree-table/lib/index.js'
 
-import 'ref-tree-table/dist/index.css"
+
+样式
+import 'ref-tree-table/lib/index.css';
 
 
 ```
@@ -110,5 +114,8 @@ canClickGoOn|`function()`| ()=>{return true}|当点击文本框右侧弹出按�
 canInputGoOn|`function()`| ()=>{return true}|当点击文本框触发快捷录入时是否可以录入<br>适用于级联情况下当选择不全时的处理| 否 
 
 ## 注意事项
+
+
+暂无
 
 ## 更新日志
