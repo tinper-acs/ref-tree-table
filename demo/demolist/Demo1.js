@@ -10,7 +10,7 @@ import RefTreeTableBaseUI from '../../src/index';
 import  '../../src/index.less';
 import {Form,Button} from 'tinper-bee';
 
-class Demo2 extends Component {
+class Demo1 extends Component {
     constructor() {
         super();
         this.state = {
@@ -91,6 +91,6 @@ class Demo2 extends Component {
     }
 };
 
-export default Form.createForm()(Demo2);
+export default Form.createForm()(Demo1);
 
 

@@ -11,7 +11,7 @@ import  '../../src/index.less';
 
 import {Form,Button} from 'tinper-bee';
 
-class Demo1 extends Component {
+class Demo2 extends Component {
     constructor() {
         super();
         this.state = {
@@ -110,6 +110,6 @@ class Demo1 extends Component {
     }
 };
 
-export default Form.createForm()(Demo1);
+export default Form.createForm()(Demo2);
 
 
