@@ -5,7 +5,6 @@ import Loading from 'bee-loading';
 import RefCoreError from 'ref-core/lib/refs/RefCoreError';
 import RefCoreTree from 'ref-core/lib/refs/RefCoreTree';
 import RefCoreSearch from 'ref-core/lib/refs/RefCoreSearch';
-// import './RefTreeBase.less';
 const noop = () => {
 };
 const propTypes = {
@@ -15,6 +14,7 @@ const propTypes = {
   defaultExpandAll: PropTypes.bool,  // 数默认展开
   checkStrictly: PropTypes.bool,
   checkedArray: PropTypes.array, //  指定已选择数据id
+  treeData: PropTypes.array, //  指定已选择数据id
   lazyModal: PropTypes.bool,
   onCancel: PropTypes.func,
   onSave: PropTypes.func,
@@ -32,6 +32,7 @@ const defaultProps = {
   defaultExpandAll: true,  // 数默认展开
   checkStrictly: false,
   checkedArray: [], //  指定已选择数据id
+  treeData:[],
   lazyModal: false,
   onCancel: noop,
   onSave: noop,
@@ -193,7 +194,7 @@ class RefTreeBaseUI extends Component {
       <div
         className={`${className} ref-core ref-tree-table-base `}
       >
-       	<Loading show={showLoading} type={'fence'} displayType={"block"} ></Loading>
+       	{/* <Loading show={showLoading} type={'fence'} displayType={"block"} ></Loading> */}
         <RefCoreSearch
             show={searchable}
             onSearch={this.onSearchClick}
@@ -217,7 +218,7 @@ class RefTreeBaseUI extends Component {
                 selectedKeys={checkedKeys}
                 checkStrictly={checkStrictly}
                 showLine={showLine}
-                loadData={lazyModal ? this.onLoadData.bind(this) : () => { }}
+                loadData={lazyModal ? this.props.onLoadData:null}
               /> :
               <RefCoreError show={!Boolean(this.treeData.length)} language={lang} />
           }

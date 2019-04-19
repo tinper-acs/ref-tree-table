@@ -1,6 +1,5 @@
-@import './theme-red.css';
 @import './components/RefMultipleTableBase.less';
-@import'./components/RefTreeBase.less';
+@import './theme-red.css';
 .ref-tree-table{
     //主题-红色
     &.ref-red{
@@ -69,4 +68,9 @@
         // border: 1px solid #e9e9e9;
         border-radius: 5px;
     }
+}
+.ref-tree-table-base{
+	& .ref-core-tree{
+		text-align: left;
+	}
 }

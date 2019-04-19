@@ -57,7 +57,12 @@ class RefTreeTableBaseUI extends Component {
 		};
 		this.checkedArray = props.checkedArray || [];
 	}
-	
+	componentWillReceiveProps(nextProps){
+		if(nextProps.showModal && !this.props.showModal){
+			//按钮点击取消操作
+			this.checkedArray = Object.assign([],nextProps.matchData || []);
+		}
+	}
 	//table的所有点击
 	onSelectChange = (record) => {
 		this.checkedArray = record;
@@ -122,7 +127,6 @@ class RefTreeTableBaseUI extends Component {
 			showLoading,
 			multiple,
 			showModal,//就是为了update，不对外
-			checkedArray:this.checkedArray,
 			condition,
 			columnsData,
 			tableData,
@@ -138,12 +142,13 @@ class RefTreeTableBaseUI extends Component {
 				backdrop={backdrop}
 				size={'xlg'}
 				onHide={this.handleBtnCancel}
+				
 			>
 				<Modal.Header closeButton={true}>
 						<Modal.Title>{title}</Modal.Title>
 				</Modal.Header >
-				<Modal.Body>
-					<Loading show={showLoading} type={'fence'} displayType={"block"} ></Loading>
+				<Modal.Body ref={ref=>this.modalRef=ref}>
+					    <Loading container={this.modalRef} show={showLoading} ></Loading>
 						<div className="ref-tree-table-layout">
 							<div className="ref-tree-table-layout-col">
 								{

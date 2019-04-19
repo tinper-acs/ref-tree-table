@@ -17,11 +17,15 @@ const noop = () => {
 };
 const propTypes = {
 	loadTableData: PropTypes.func,//分页下拉或者跳转的回调
-	onTableSearch: PropTypes.func
+	onTableSearch: PropTypes.func,
+	columnsData: PropTypes.array,
+	tableData: PropTypes.array,
 };
 const defaultProps = {
 	loadTableData: noop,
 	onTableSearch:noop,
+	columnsData: [],
+	tableData: [],
 }
 class RefMultipleTableBaseUI extends Component {
 	columnsData = []//表头数据
@@ -42,13 +46,10 @@ class RefMultipleTableBaseUI extends Component {
 		this.TableView = props.multiple ? multiSelect(Table, Checkbox) : Table;
 	}
 	componentDidMount(){
-		this.initComponent(this.props);
+		if(this.props.showModal)this.initComponent(this.props);
 	}
 	componentWillReceiveProps(nextProps) {
-		if(nextProps.showModal && nextProps.condition !== this.props.condition){
-			this.initComponent(nextProps);
-		}
-		
+		this.initComponent(nextProps);
 	}
 	initComponent = (props) => {
         //内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
@@ -86,8 +87,6 @@ class RefMultipleTableBaseUI extends Component {
 		let { onChange } = this.props;
 		onChange(checkedArray)
 	}
-
-
 	/**
 	 * 跳转到制定页数的操作
 	 * @param {number} index 跳转页数
@@ -292,7 +291,7 @@ class RefMultipleTableBaseUI extends Component {
 		});
 		return (
 			<div className={`${className} ref-core ref-tree-table-base`}>
-				<Loading show={showLoading} type={'fence'} displayType={"block"} />
+				{/* <Loading container={document.getElementsByClassName('u-modal-content')[0]} show={showLoading} type={'fence'} displayType={"block"} /> */}
 					<RefCoreTab
 						className="ref-tree-table-base-tab"
 						selectedData={_this.checkedArray}

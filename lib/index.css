@@ -48,7 +48,6 @@
 .ref-tree-table-base .u-select-selection:active {
   border-color: #004898;
 }
-@import './components/RefTreeBase.less';
 .ref-tree-table.ref-red .selectedItemSum {
   color: #f53c32;
 }
@@ -100,4 +99,7 @@
   overflow: auto;
   height: 413px;
   border-radius: 5px;
+}
+.ref-tree-table-base .ref-core-tree {
+  text-align: left;
 }

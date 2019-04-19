@@ -53,10 +53,10 @@ gulp.task("css_component", function() {
   console.log("###### css_component done ######");
 });
 
-gulp.task("less_component", function() {
+gulp.task("less_component",['css_component'], function() {
   gulp
     .src([
-      path.join(process.cwd(), "./src/*.less"),
+      path.join(process.cwd(), "./src/index.less"),
   ])
     .pipe(less())
     .pipe(gulp.dest("./lib"));
