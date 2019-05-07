@@ -51,17 +51,12 @@ const defaultProps = {
 class RefTreeTableBaseUI extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			//  condition: '',
-			// showLoading: true
-		};
-		this.checkedArray = props.checkedArray || [];
 	}
 	componentWillReceiveProps(nextProps){
-		if(nextProps.showModal && !this.props.showModal){
-			//按钮点击取消操作
-			this.checkedArray = Object.assign([],nextProps.matchData || []);
-		}
+		// if(nextProps.showModal && !this.props.showModal){
+		// 	//按钮点击取消操作
+		// 	this.checkedArray = Object.assign([],nextProps.matchData || []);
+		// }
 	}
 	//table的所有点击
 	onSelectChange = (record) => {
@@ -75,6 +70,8 @@ class RefTreeTableBaseUI extends Component {
 				onSave(this.checkedArray);
 				break;
 			case 'cancel':
+			        //按钮点击取消操作,checkedArray要还原
+					this.checkedArray = Object.assign([],this.props.matchData || []);
 					onCancel();
 				break;
 			case 'clear':
