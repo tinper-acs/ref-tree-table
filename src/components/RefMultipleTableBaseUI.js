@@ -53,8 +53,8 @@ class RefMultipleTableBaseUI extends Component {
 	}
 	initComponent = (props) => {
         //内部缓存已选择值，不通过 state 缓存，表格缓存状态自动实现
-		let { checkedArray,columnsData,tableData,page,valueField,matchData=[],value} = props;
-		this.checkedArray = Object.assign([],  checkedArray || []);
+		let { columnsData,tableData,page,valueField,matchData=[],value} = props;
+		this.checkedArray = Object.assign([],  matchData || []);
 		//内部缓存已选择值，缓存成 Map 便于检索
 		this.checkedMap = {};
 		this.checkedArray.forEach(item=>{

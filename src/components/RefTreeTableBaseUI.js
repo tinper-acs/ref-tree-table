@@ -71,7 +71,7 @@ class RefTreeTableBaseUI extends Component {
 				break;
 			case 'cancel':
 			        //按钮点击取消操作,checkedArray要还原
-					this.checkedArray = Object.assign([],this.props.matchData || []);
+					// this.checkedArray = Object.assign([],this.props.matchData || []);
 					onCancel();
 				break;
 			case 'clear':
@@ -171,7 +171,7 @@ class RefTreeTableBaseUI extends Component {
 								
 								<RefMultipleTableBaseUI
 									{...tableProps}
-									checkedArray={_this.checkedArray}
+									// checkedArray={_this.checkedArray}
 									onChange={_this.onSelectChange}
 								/> 
 							</div>
