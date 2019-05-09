@@ -22,7 +22,8 @@ const propTypes = {
 	backdrop: PropTypes.bool,
 	showLine: PropTypes.bool,
 	multiple: PropTypes.bool,
-	destory: PropTypes.func
+	destory: PropTypes.func,
+	matchData:PropTypes.array,
 };
 const defaultProps = {
 	title: '弹窗标题',
@@ -43,7 +44,7 @@ const defaultProps = {
 	backdrop: true,
 	showLine: false,
 	multiple: false,
-
+	matchData:[],
 	destory: () => { }
 };
 
@@ -53,10 +54,6 @@ class RefTreeTableBaseUI extends Component {
 		super(props);
 	}
 	componentWillReceiveProps(nextProps){
-		// if(nextProps.showModal && !this.props.showModal){
-		// 	//按钮点击取消操作
-		// 	this.checkedArray = Object.assign([],nextProps.matchData || []);
-		// }
 	}
 	//table的所有点击
 	onSelectChange = (record) => {
@@ -70,8 +67,6 @@ class RefTreeTableBaseUI extends Component {
 				onSave(this.checkedArray);
 				break;
 			case 'cancel':
-			        //按钮点击取消操作,checkedArray要还原
-					// this.checkedArray = Object.assign([],this.props.matchData || []);
 					onCancel();
 				break;
 			case 'clear':
@@ -159,7 +154,6 @@ class RefTreeTableBaseUI extends Component {
 								<RefTreeBaseUI
 									onTreeChange={onTreeChange}
 									{...treeProps}
-									// onTreeLoading = {_this.onTreeLoading}
 								/>
 							</div>
 							<div className="ref-tree-table-layout-col">
@@ -171,7 +165,6 @@ class RefTreeTableBaseUI extends Component {
 								
 								<RefMultipleTableBaseUI
 									{...tableProps}
-									// checkedArray={_this.checkedArray}
 									onChange={_this.onSelectChange}
 								/> 
 							</div>
