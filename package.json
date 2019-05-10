@@ -19,10 +19,10 @@
   "bugs": {
     "url": "https://github.com/tinper-acs/ref-tree-t/issues"
   },
-  "homepage": "https://github.com/tinper-acs/ref-tree-t#readme",
+  "homepage": "https://github.com/tinper-acs/ref-tree-table/readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tinper-acs/ref-tree-t.git"
+    "url": "git+https://github.com/tinper-acs/ref-tree-table.git"
   },
   "author": "",
   "license": "MIT",
