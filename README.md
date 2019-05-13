@@ -72,7 +72,7 @@ searchable |`bool`|false |是否显示搜索框，弹出层是否带有搜索框
 checkStrictly |`bool`|false|checkable状态下节点选择完全受控（父子节点选中状态不再关联）, false 关联选择，true 不关联| 否
 nodeDisplay |<code>string 或 function</code>| `{refname}` |节点渲染时可匹配的内容，这里为了提供根据数据渲染节点图标使用 | 否
 lazyModal | `bool`|false | 树参照是异步加载，回调onLoadData | 否
-defaultExpandAll |`bool`|-- | 展开所有节点，true 展开，false 不展开。前提lazyModal是false，懒加载下该属性不起效。| 否
+defaultExpandAll |`bool`| true| 展开所有节点，true 展开，false 不展开。前提lazyModal是false，懒加载下该属性不起效。| 否
 showLine|`bool`|false |树组件是否有连线| 否
 onChange| `function(checkedArray)`| -- | 右表选中回调函数| 否
 nodeDisplay|<code>string 或 function</code>|'{refname}' |左树节点展示形式。<br/>当为字符串时则会根据`{}`包裹的增则匹配替换。<br/>如：`'人员姓名：{refname}，编号：{refcode}'`<br/>当为函数时则需自定义返回内容，参数为迭代已选择的记录。<br/>如：<br/>displayField: (record)=>  ${record.refname}-${record.refname}| 否
