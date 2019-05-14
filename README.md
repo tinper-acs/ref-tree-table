@@ -61,7 +61,7 @@ onCancel | `function(  )`|-- |关闭弹出层 | 否
 menuTitle | `String` | ''| 左树的标题| 否
 tableTitle | `String` | '' | 右表的标题 | 否
 showModal | `Boolean` | false | 参照是否打开。 | 是
-theme| `String` | 'ref-red' | 参照主题 | 否
+theme| `String` | 'ref-red' | 启用参照内部默认样式。theme=''，不使用参照默认样式。| 否
 showLoading | `bool` | false | 是否展示loading，多用于请求中| 否
 valueField |``string``|'refpk' |待提交的value的键。或者说指定真实数据的键。要求具有唯一性。左树右表一致,都需要| 否
 左树

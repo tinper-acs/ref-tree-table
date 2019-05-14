@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import { RefTreeTableWithInput } from '../../src/index';
 import '../../src/index.less';
+// import '../tinper-bee-theme.css';
 
 import { Form, Button } from 'tinper-bee';
 
@@ -91,6 +92,7 @@ class Demo2 extends Component {
                 pattern: /[^{"refname":"","refpk":""}|{"refpk":"","refname":""}]/
               }]
             })}
+            // theme=''
           />
 
           <Button
