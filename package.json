@@ -110,6 +110,6 @@
     "bee-table": "^2.0.10",
     "bee-tree": "^2.0.7",
     "cross-env": "^5.2.0",
-    "ref-core": "^0.2.4"
+    "ref-core": "^0.2.6"
   }
 }
