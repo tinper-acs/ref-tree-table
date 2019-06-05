@@ -1,12 +1,12 @@
 /**
  *
- * @title 基础示例1
- * @description RefTreeTableBaseUI,`multiple`单选,`miniSearch`简单搜索。注意单选展示radio需要手动封装
+ * @title 基础示例4
+ * @description 清空功能：不使用form表单
  *
  */
 
 import React, { Component } from 'react';
-import RefTreeTableBaseUI from '../../src/index';
+import { RefTreeTableWithInput } from '../../src/index';
 import '../../src/index.less';
 import { Button } from 'tinper-bee';
 import Radio from 'bee-radio';
@@ -17,7 +17,6 @@ class Demo1 extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false,
       showLoading: false,
       searchValue: '',
       value: '',
@@ -31,6 +30,18 @@ class Demo1 extends Component {
     };
 
   }
+
+  /**
+   * @msg: 点击input右侧menu icon才触发的操作。return true是必须的
+   * @param {type} 
+   * @return: 
+   */
+  canClickGoOn = () =>{
+    this.loadData();
+    return true;
+  }
+
+
   /**
    * @msg: 请求mock数据，包含三项：树 表头 表体的数据
    * @param {type} 
@@ -192,40 +203,45 @@ class Demo1 extends Component {
   onSave = (result) => {
     console.log('save', result)
     this.setState({
-      showModal: false,
       matchData: result,
     })
   }
+  
   /**
-   * @msg: 参照弹框右上角X和取消
-   * @param {type} 
-   * @return: 
-   */
-  onCancel = () => {
-    this.setState({ showModal: false })
+  * @msg: 清空操作
+  * @param {type} 此时value不可以直接传'',因为''下只能清除一次，第二次清除时前后value都是''，不会触发更新操作，
+  * 因此通过refpk不一致来触发更新操作
+  * @return: 
+  */
+  clearFunc = () => {
+    this.setState({
+      matchData: [],
+      value: `{"refname":"","refpk":"${Math.random()}"}`,
+    })
   }
-
   render() {
     options = {
       displayField: '{refname}',
       valueField: 'refpk',
       lang: 'zh_CN',
       miniSearch: true,
-      multiple: false,
+      multiple: true,
     }
+    const {value , matchData} = this.state;
     return (
 
       <div className="demo-label">
-        <RefTreeTableBaseUI
+        <RefTreeTableWithInput
           {...options}
 
           treeData={this.treeData}
           columnsData={this.columnsData}
           tableData={this.tableData}
           page={this.page}
-          matchData={this.state.matchData}
-
-          showModal={this.state.showModal}
+          matchData={matchData}
+          value={value}
+          
+          canClickGoOn={this.canClickGoOn}
 
           onTreeChange={this.onTreeChange}
           onTreeSearch={this.onTreeSearch}
@@ -235,7 +251,7 @@ class Demo1 extends Component {
           loadTableData={this.loadTableData}
 
         />
-        <Button colors="primary" onClick={() => { this.setState({ showModal: true },()=>{this.loadData()}) }}>打开弹框</Button>
+        <Button colors="primary" onClick={this.clearFunc}>清空</Button>
       </div>
     )
   }
