@@ -33,7 +33,7 @@ class Demo2 extends Component {
         }
       ],
       value: '{"refname":"人员3-初始value","refpk":"004989bb-a705-45ce-88f3-662f87ee6e52"}',
-
+      // value:[{"refname":"人员3-初始value","code":"003"}]
 
     }
     this.page = {
@@ -228,6 +228,9 @@ class Demo2 extends Component {
           onSave={this.onSave}
           onCancel={this.onCancel}
           loadTableData={this.loadTableData}
+
+          filterUrl={'/pap_basedoc/common-ref/blobRefTreeGrid'}
+
           {...getFieldProps('treeTable2', {
             initialValue: value,
             rules: [{
