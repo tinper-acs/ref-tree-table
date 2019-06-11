@@ -205,6 +205,7 @@ class Demo2 extends Component {
       lang: 'zh_CN',
       miniSearch: true,
       multiple: true,
+      isLocalSearch:true,
     }
     const {value , matchData} = this.state;
     const { getFieldProps, getFieldError } = this.props.form;
