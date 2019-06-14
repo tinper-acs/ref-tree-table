@@ -1,7 +1,7 @@
 /**
  *
  * @title 基础示例3
- * @description 清空功能：搭配form校验。同时注意两个特殊展示：1.matchData数据项不全在已选择下展示 2.保存操作之后，input展示与displayField有关
+ * @description 清空功能：搭配form校验。同时注意两个特殊展示：1.matchData数据项不全在已选择下展示 2.保存操作之后，input展示与inputDisplay有关
  *
  */
 
