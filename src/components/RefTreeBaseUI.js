@@ -191,6 +191,7 @@ class RefTreeBaseUI extends Component {
       nodeDisplay = "{refname}",
       nodeKeysFunc,
       isLocalSearch,//从RefTreeTableBaseUI传入
+      treeNodeDisabledKey,
     } = this.props;
     const { checkedKeys,  checkStrictly,searchValue} = this.state;
     return (
@@ -224,6 +225,7 @@ class RefTreeBaseUI extends Component {
                 showLine={showLine}
                 loadData={lazyModal ? this.props.onLoadData:null}
                 searchValue={isLocalSearch?searchValue:null}
+                treeNodeDisabledKey={treeNodeDisabledKey}
               /> :
               <RefCoreError show={!Boolean(this.treeData.length)} language={lang} />
           }
