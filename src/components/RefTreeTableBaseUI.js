@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Modal} from 'tinper-bee';
+import Modal from 'bee-modal';
 import Loading from 'bee-loading';
 import RefCoreButton from 'ref-core/lib/refs/RefCoreButton.js';
 import RefMultipleTableBaseUI from './RefMultipleTableBaseUI';
