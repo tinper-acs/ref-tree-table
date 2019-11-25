@@ -56,7 +56,7 @@ function  noop() {
 class RefTreeTableBaseUI extends Component {
 	constructor(props) {
 		super(props);
-		this.checkedTreekey = props.checkedTreeArray || [];
+		this.checkedTreeArray = props.checkedTreeArray || [];
 	}
 	componentWillReceiveProps(nextProps){
 	}
