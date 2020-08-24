@@ -14,7 +14,10 @@
     "precommit": "npm run lint",
     "es": "rm -rf es && babel src -d es --no-comments",
     "deploy": "npm run clear:gh-pages && webpack --config config/webpack.config.ghpages.js",
-    "dev_ref_core": "cross-env use_ref_core_dev=true npm run dev"
+    "dev_ref_core": "cross-env use_ref_core_dev=true npm run dev",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags",
+    "prepublishOnly": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/tinper-acs/ref-tree-t/issues"
