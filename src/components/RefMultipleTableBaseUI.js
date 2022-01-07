@@ -5,14 +5,9 @@ import RefCoreError from 'ref-core/lib/refs/RefCoreError';
 import RefCoreTab from 'ref-core/lib/refs/RefCoreTab';
 import RefCoreSearch from 'ref-core/lib/refs/RefCoreSearch';
 import {paginationLocale} from 'ref-core/lib/utils/locale.js'
-import Loading from 'bee-loading';
-import Pagination from 'bee-pagination';
-import Checkbox from 'bee-checkbox';
-import Table from 'bee-table';
-import multiSelect from "bee-table/build/lib/multiSelect.js";
-// import './RefMultipleTableBase.less'
-import { refValParse } from '../utils';
-// const MultiSelectTable = multiSelect(Table, Checkbox);
+import { Pagination, Checkbox, Table } from '@tinper/next-ui'
+
+const { multiSelect } = Table
 const noop = () => {
 };
 const propTypes = {
@@ -334,10 +329,10 @@ class RefMultipleTableBaseUI extends Component {
 							items={pageCount}
 							maxButtons={3}
 							total={totalElements}
-							activePage={currPageIndex}
-							onDataNumSelect={this.dataNumSelect}
-							onSelect={this.handlePagination}
-							locale={paginationLocale(lang)}
+							current={currPageIndex}
+							onPageSizeChange={this.dataNumSelect}
+							onChange={this.handlePagination}
+							locale={paginationLocale[lang]}
 						/>
 					</div>
 			</div>

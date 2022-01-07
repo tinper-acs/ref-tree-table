@@ -218,15 +218,12 @@ class Demo1 extends Component {
       <div className="demo-label">
         <RefTreeTableBaseUI
           {...options}
-
           treeData={this.treeData}
           columnsData={this.columnsData}
           tableData={this.tableData}
           page={this.page}
           matchData={this.state.matchData}
-
           showModal={this.state.showModal}
-
           onTreeChange={this.onTreeChange}
           onTreeSearch={this.onTreeSearch}
           onTableSearch={this.onTableSearch}

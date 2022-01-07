@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { is } from 'immutable';
-import Loading from 'bee-loading';
 import RefCoreError from 'ref-core/lib/refs/RefCoreError';
 import RefCoreTree from 'ref-core/lib/refs/RefCoreTree';
 import RefCoreSearch from 'ref-core/lib/refs/RefCoreSearch';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Modal from 'bee-modal';
-import Loading from 'bee-loading';
+import { Modal, Spin } from '@tinper/next-ui'
 import RefCoreButton from 'ref-core/lib/refs/RefCoreButton.js';
 import RefMultipleTableBaseUI from './RefMultipleTableBaseUI';
 import RefTreeBaseUI from './RefTreeBaseUI';
@@ -169,7 +168,7 @@ class RefTreeTableBaseUI extends Component {
 						<Modal.Title>{title}</Modal.Title>
 				</Modal.Header >
 				<Modal.Body ref={ref=>this.modalRef=ref}>
-					    <Loading container={this.modalRef} show={showLoading} ></Loading>
+					    <Spin getPopupContainer={this.modalRef} spinning={showLoading} />
 						<div className="ref-tree-table-layout">
 							<div className="ref-tree-table-layout-col">
 								{
