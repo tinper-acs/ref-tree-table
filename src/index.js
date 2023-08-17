@@ -1,6 +1,5 @@
 import RefTreeTableBaseUI from './components/RefTreeTableBaseUI';
 import RefWithInput from 'ref-core/lib/refs/RefCoreWithInput';
-import createModal from 'ref-core/lib/utils/createApi.js';
 import RefCoreGlobal from 'ref-core/lib/refs/RefCoreGlobal';
 import React from 'react';
 import 'ref-core/css/refcore.css';
@@ -20,18 +19,18 @@ function createRefTreeTable(selector, props, callback){
         if(typeof callback === 'function'){
             callback(param)
         }
-        
+
     });
 }
 function createRefTreeTableModal(props, callback){
     return createRefModal({
-        component: <RefTreeTable />, 
-        ...props 
+        component: <RefTreeTable />,
+        ...props
     }, (param) => {
         if(typeof callback === 'function'){
             callback(param)
         }
-        
+
     });
 }
 
@@ -50,6 +49,6 @@ export default RefTreeTableBaseUI;
 export {
     RefTreeTable,
     RefTreeTableWithInput,
-    createRefTreeTable, 
+    createRefTreeTable,
     createRefTreeTableModal
 };

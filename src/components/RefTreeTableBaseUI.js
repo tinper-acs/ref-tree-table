@@ -50,7 +50,7 @@ const defaultProps = {
 };
 
 function  noop() {
-	
+
 }
 class RefTreeTableBaseUI extends Component {
 	constructor(props) {
@@ -63,7 +63,7 @@ class RefTreeTableBaseUI extends Component {
 	onSelectChange = (record) => {
 		this.checkedArray = record;
 	}
-	
+
 	onClickBtn = (type) => {
 		const { onCancel, onSave } = this.props;
 		switch (type) {
@@ -81,7 +81,7 @@ class RefTreeTableBaseUI extends Component {
 				break;
 			default:
 		}
-		
+
 	};
 	handleBtnCancel = () => {
 		this.props.onCancel()
@@ -94,10 +94,7 @@ class RefTreeTableBaseUI extends Component {
 
 	render() {
 		const _this = this;
-		const { className,showModal, searchable, backdrop, title, showLine, 
-			multiple, menuTitle, tableTitle, valueField,value,
-			lang,buttons,checkStrictly=true,defaultExpandAll,nodeDisplay,
-		    lazyModal,onLoadData,onSave} = this.props;
+		const { className,showModal, searchable, backdrop, title, chosenText, hiddenChosenText, showLine, multiple, menuTitle, tableTitle, valueField,value, lang,buttons,checkStrictly=true,defaultExpandAll,nodeDisplay, lazyModal,onLoadData,onSave} = this.props;
 		let {showLoading , treeData,onTreeChange,onTreeSearch,matchData} = this.props;
 		let {
 			columnsData,
@@ -139,6 +136,8 @@ class RefTreeTableBaseUI extends Component {
 		let tablePropsAll = Object.assign({},{
 			className,
 			lang,
+      chosenText,
+      hiddenChosenText,
 			valueField,
 			showLoading,
 			multiple,
@@ -187,19 +186,19 @@ class RefTreeTableBaseUI extends Component {
 										{tableTitle || ''}
 									</div>
 								}
-								
+
 								<RefMultipleTableBaseUI
 									{...tablePropsAll}
 									onChange={_this.onSelectChange}
-								/> 
+								/>
 							</div>
 						</div>
 				</Modal.Body>
 				<Modal.Footer className={'ref-core-modal-footer '}>
-					<RefCoreButton 
-						language={lang} 
+					<RefCoreButton
+						language={lang}
 						onClickBtn={_this.onClickBtn}
-						buttons={buttons} 
+						buttons={buttons} // {okText: '取消', cancelText: '确认'}
 						emptyBut={false}
 						footerBtnDom={footerBtnDom}
 					/>
