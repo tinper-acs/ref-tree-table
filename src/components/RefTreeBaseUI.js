@@ -193,6 +193,7 @@ class RefTreeBaseUI extends Component {
       treeNodeDisabledKey,
       treeNodeDisabledFunc,
       isLocalSearch,//从RefTreeTableBaseUI传入
+      fieldid,
     } = this.props;
     const { checkedKeys,  checkStrictly,searchValue} = this.state;
     return (
@@ -206,6 +207,7 @@ class RefTreeBaseUI extends Component {
             onSearch={this.onSearchChange}
             onChange={this.onSearchChange}
             language={lang}
+            fieldid={fieldid ? fieldid : undefined}
           />
           {
             this.treeData.length ?
@@ -228,8 +230,9 @@ class RefTreeBaseUI extends Component {
                 searchValue={isLocalSearch?searchValue:null}
                 treeNodeDisabledFunc={treeNodeDisabledFunc}
                 treeNodeDisabledKey={treeNodeDisabledKey}
+                fieldid={fieldid ? fieldid : undefined}
               /> :
-              <RefCoreError show={!Boolean(this.treeData.length)} language={lang} />
+              <RefCoreError show={!Boolean(this.treeData.length)} language={lang} fieldid={fieldid ? fieldid : undefined} />
           }
       </div>
     );

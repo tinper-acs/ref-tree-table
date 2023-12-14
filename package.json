@@ -1,6 +1,6 @@
 {
   "name": "ref-tree-table",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -98,6 +98,6 @@
   "dependencies": {
     "@tinper/next-ui": "^4.4.4",
     "cross-env": "^5.2.0",
-    "ref-core": "^2.0.0"
+    "ref-core": "^2.0.3"
   }
 }

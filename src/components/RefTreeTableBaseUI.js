@@ -50,7 +50,7 @@ const defaultProps = {
 };
 
 function  noop() {
-
+	
 }
 class RefTreeTableBaseUI extends Component {
 	constructor(props) {
@@ -63,7 +63,7 @@ class RefTreeTableBaseUI extends Component {
 	onSelectChange = (record) => {
 		this.checkedArray = record;
 	}
-
+	
 	onClickBtn = (type) => {
 		const { onCancel, onSave } = this.props;
 		switch (type) {
@@ -81,7 +81,7 @@ class RefTreeTableBaseUI extends Component {
 				break;
 			default:
 		}
-
+		
 	};
 	handleBtnCancel = () => {
 		this.props.onCancel()
@@ -94,7 +94,10 @@ class RefTreeTableBaseUI extends Component {
 
 	render() {
 		const _this = this;
-		const { className,showModal, searchable, backdrop, title, chosenText, hiddenChosenText, showLine, multiple, menuTitle, tableTitle, valueField,value, lang,buttons,checkStrictly=true,defaultExpandAll,nodeDisplay, lazyModal,onLoadData,onSave} = this.props;
+		const { className,showModal, searchable, backdrop, title, chosenText, hiddenChosenText, showLine, 
+			multiple, menuTitle, tableTitle, valueField,value,
+			lang,buttons,checkStrictly=true,defaultExpandAll,nodeDisplay,
+		    lazyModal,onLoadData,onSave, fieldid} = this.props;
 		let {showLoading , treeData,onTreeChange,onTreeSearch,matchData} = this.props;
 		let {
 			columnsData,
@@ -162,11 +165,12 @@ class RefTreeTableBaseUI extends Component {
 				onHide={this.handleBtnCancel}
 				autoFocus={false}
 				{...modalProps}
+				fieldid={fieldid ? fieldid + '_modal' : undefined}
 			>
-				<Modal.Header closeButton={true}>
-						<Modal.Title>{title}</Modal.Title>
+				<Modal.Header closeButton={true} fieldid={fieldid ? fieldid + '_modal_header' : undefined}>
+						<Modal.Title fieldid={fieldid ? fieldid + '_modal_title' : undefined}>{title}</Modal.Title>
 				</Modal.Header >
-				<Modal.Body ref={ref=>this.modalRef=ref}>
+				<Modal.Body ref={ref=>this.modalRef=ref} fieldid={fieldid ? fieldid + '_modal_body' : undefined}>
 					    <Spin getPopupContainer={this.modalRef} spinning={showLoading} />
 						<div className="ref-tree-table-layout">
 							<div className="ref-tree-table-layout-col">
@@ -178,6 +182,7 @@ class RefTreeTableBaseUI extends Component {
 								<RefTreeBaseUI
 									onTreeChange={onTreeChange}
 									{...treeProps}
+									fieldid={fieldid ? fieldid : undefined}
 								/>
 							</div>
 							<div className="ref-tree-table-layout-col">
@@ -186,21 +191,23 @@ class RefTreeTableBaseUI extends Component {
 										{tableTitle || ''}
 									</div>
 								}
-
+								
 								<RefMultipleTableBaseUI
 									{...tablePropsAll}
+									fieldid={fieldid ? fieldid : undefined}
 									onChange={_this.onSelectChange}
-								/>
+								/> 
 							</div>
 						</div>
 				</Modal.Body>
-				<Modal.Footer className={'ref-core-modal-footer '}>
-					<RefCoreButton
-						language={lang}
+				<Modal.Footer className={'ref-core-modal-footer '} fieldid={fieldid ? fieldid + '_modal_footer' : undefined}>
+					<RefCoreButton 
+						language={lang} 
 						onClickBtn={_this.onClickBtn}
-						buttons={buttons} // {okText: '取消', cancelText: '确认'}
+						buttons={buttons} 
 						emptyBut={false}
 						footerBtnDom={footerBtnDom}
+						fieldid={fieldid ? fieldid : undefined}
 					/>
 				</Modal.Footer>
 			</Modal>
